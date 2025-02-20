@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>College Book Store</title>
+</head>
+<body>
+
+
+    <!-- Header with Logo and Navigation -->
+    <div id="header">
+        <h1>College Book Store</h1>
+        <img class="logo" src="images/store.jpg" >
+        <nav>
+            <a href="login.html" target="right-frame">Login</a>
+            <a href="registeration.html" target="right-frame">Register</a>
+            <a href="cart.html" target="right-frame">Cart</a>
+        </nav>
+    </div>
+
+    <!-- Main Container for Left and Right Frames -->
+    <div id="container">
+        <!-- Left Frame with Category Links -->
+        <div id="left-frame">
+            <h3><a href="description.html" target="right-frame">HOME</a></h3>
+            <a href="catalouge_CSE.html" target="right-frame">CSE</a>
+            <a href="catalouge_EEE.html" target="right-frame">EEE</a>
+            <a href="catalouge_CIVIL.html" target="right-frame">Civil</a>
+            <a href="catalouge_MECH.html" target="right-frame">Mechanical</a>
+        </div>
+
+        <!-- Right Frame where content will be loaded -->
+        <iframe id="right-frame" name="right-frame" src="description.html" frameborder="0"></iframe>
+    </div>
+
+</body>
+</html>

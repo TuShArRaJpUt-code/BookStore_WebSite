@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .cart-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f8f8f8;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .total {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .empty-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+    </header>
+
+    <div class="cart-container" id="cart-container">
+        <div class="cart-header">
+            <div>Book Name</div>
+            <div>Price</div>
+            <div>Quantity</div>
+            <div>Amount</div>
+        </div>
+
+        <!-- Cart items will appear here dynamically -->
+        <div class="empty-message" id="empty-message">
+            Your cart is empty.
+        </div>
+
+        <div class="total" id="total"></div>
+    </div>
+
+    <script>
+        // Load cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartContainer = document.getElementById('cart-container');
+        const emptyMessage = document.getElementById('empty-message');
+        const totalElement = document.getElementById('total');
+
+        if (cart.length === 0) {
+            emptyMessage.style.display = 'block';
+        } else {
+            emptyMessage.style.display = 'none';
+            let totalAmount = 0;
+            cart.forEach(item => {
+                // Add each item to the cart container
+                let cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <div>${item.name}</div>
+                    <div>$${item.price}</div>
+                    <div>${item.quantity}</div>
+                    <div>$${item.amount}</div>
+                `;
+                cartContainer.appendChild(cartItem);
+                totalAmount += item.amount;
+            });
+            // Show the total amount
+            totalElement.innerHTML = `Total Amount: $${totalAmount}`;
+        }
+    </script>
+
+</body>
+</html>

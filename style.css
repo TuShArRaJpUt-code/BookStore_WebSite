@@ -1,0 +1,62 @@
+ /* Simple CSS for layout */
+ body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+#header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+#header h1 {
+    margin: 0;
+}
+#header nav {
+    margin-top: 10px;
+}
+#header nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+#header nav a:hover {
+    text-decoration: underline;
+}
+#container {
+    display: flex;
+    height: calc(100% - 60px); /* Adjust based on header size */
+}
+#left-frame {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+#right-frame {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-left: 2px solid #ddd;
+}
+#left-frame a {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: none;
+}
+#left-frame a:hover {
+    text-decoration: underline;
+}
+.logo{
+    height: 60px;
+    width: 100px;
+    position: absolute;
+    left:10px;
+    top: 10px;
+    
+    background-color:gray;
+    filter: invert(1);
+    border-radius: 50%;
+}

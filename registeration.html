@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+   
+    <form action="#" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="sex">Sex:</label><br>
+        <input type="radio" id="male" name="sex" value="male" required>
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="sex" value="female" required>
+        <label for="female">Female</label><br><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="languages">Languages Known:</label><br>
+        <div class="boxes">
+        <input type="checkbox" id="english" name="languages" value="English">
+        <label for="english">English</label><br>
+        <input type="checkbox" id="telugu" name="languages" value="Telugu">
+        <label for="telugu">Telugu</label><br>
+        <input type="checkbox" id="hindi" name="languages" value="Hindi">
+        <label for="hindi">Hindi</label><br>
+        <input type="checkbox" id="tamil" name="languages" value="Tamil">
+        <label for="tamil">Tamil</label><br><br>
+</div>
+
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+    <script>
+       function validation() {
+    var username = document.getElementById("username").value;
+    var regex = /^[A-Za-z]+$/;
+    
+    if (!regex.test(username)) {
+        document.getElementById("error-message").innerText = "Username must contain only alphabets";
+        return false;
+    }
+    if (username.length < 6) {
+        document.getElementById("error-message").innerText = "Username must be at least 6 characters long";
+        return false;
+    }
+    document.getElementById("error-message").innerText = "";
+    return true;
+}
+
+function passValidation() {
+    let password = document.getElementById("password").value;
+    
+    if (password.length !== 6) {
+        document.getElementById("error-message").innerText = "Password must be exactly 6 characters long";
+        return false;
+    }
+    document.getElementById("error-message").innerText = "";
+    return true;
+}
+
+function phoneValidation() {
+    let phone = document.getElementById("phone").value;
+    
+    if (phone.length !== 10) {
+        document.getElementById("error-message").innerText = "Invalid phone number";
+        return false;
+    }
+    document.getElementById("error-message").innerText = "";
+    return true;
+}
+
+
+    </script>
+</body>
+</html>
